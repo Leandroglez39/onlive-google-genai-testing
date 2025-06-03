@@ -1,9 +1,13 @@
 [tool.poetry]
 name = "onlive-google-genai-testing"
 version = "0.0.1"
-description = ""
+description = "Testing application for Google GenAI services"
 authors = ["Leandro <leandro@onlive.site>"]
 readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.scripts]
+onlive-genai = "app.services.google_gemini:main"
 
 [tool.poetry.dependencies]
 python = "^3.12"
