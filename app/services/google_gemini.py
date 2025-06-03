@@ -181,7 +181,7 @@ def main():
         print(f"Response text: {response.text}")
         print("\nFull response details:")
         import pprint
-        pprint.pprint(response.model_dump(), indent=2, compact=False, sort_dicts=False)
+        pprint.pprint(response.model_dump(exclude_none=True), indent=2, compact=False, sort_dicts=False)
         
         # Example 2: Chat conversation
         logger.info("Starting chat conversation example")
@@ -193,14 +193,14 @@ def main():
             print("=" * 50)
             print(f"Response text: {response.text}")
             print("\nFull response details:")
-            pprint.pprint(response.model_dump(), indent=2, compact=False, sort_dicts=False)
+            pprint.pprint(response.model_dump(exclude_none=True), indent=2, compact=False, sort_dicts=False)
             
             print("\n" + "=" * 50)
             print("CHAT HISTORY:")
             print("=" * 50)
             history = chat.get_history()
             for i, entry in enumerate(history, 1):
-                print(f"Entry {i}: {entry}")
+                print(f"Entry {i}: {entry.model_dump(exclude_none=True)}")
         
         logger.info("Demo completed successfully")
         
